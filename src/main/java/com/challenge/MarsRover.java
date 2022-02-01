@@ -11,21 +11,30 @@ public class MarsRover {
         this.currentDirection = startDirection;
     }
 
-    void rotateLeft(){
+    void rotateLeft() {
         this.currentDirection = this.currentDirection.rotateLeft();
     }
 
-    void rotateRight(){
+    void rotateRight() {
         this.currentDirection = this.currentDirection.rotateRight();
     }
 
-    void moveInCurrentDirection() {
+    void moveInCurrentDirection(int boundX, int boundY) {
+        int updatedX = this.currentX;
+        int updatedY = this.currentY;
         switch (this.currentDirection) {
-            case NORTH -> this.currentY = this.currentY + 1;
-            case EAST -> this.currentX = this.currentX + 1;
-            case SOUTH -> this.currentY = this.currentY - 1;
-            case WEST -> this.currentX = this.currentX - 1;
+            case NORTH -> updatedY = this.currentY + 1;
+            case EAST -> updatedX = this.currentX + 1;
+            case SOUTH -> updatedY = this.currentY - 1;
+            case WEST -> updatedX = this.currentX - 1;
         }
+
+        if (updatedX < 0 || updatedX > boundX || updatedY < 0 || updatedY > boundY) {
+            throw new IllegalArgumentException("Last command would move the rover outside of the plateau!");
+        }
+
+        this.currentX = updatedX;
+        this.currentY = updatedY;
     }
 
     public String getCurrentDirectedPositionAsString() {
