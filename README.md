@@ -29,5 +29,5 @@ in paths ;)
 ### Run all tests
 
 * open Terminal and navigate to `path/to/mars-rover`
-* Run `./gradlew test`
+* Run `./gradlew clean test`
     * For Windows (not WSL) use `gradlew.bat` instead
