@@ -1,7 +1,7 @@
 # Mars Rover App
 
 ## Setup
-* install Java 8 or higher
+* install Java 16 or higher
 
 ## Build and Run Application
 
