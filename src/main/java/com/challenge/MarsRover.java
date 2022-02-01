@@ -37,6 +37,17 @@ public class MarsRover {
         this.currentY = updatedY;
     }
 
+    public void moveAccordingToCommands(String commands, int maxXCoordinate, int maxYCoordinate) {
+        for (char command : commands.toCharArray()) {
+            switch (command) {
+                case 'L' -> this.rotateLeft();
+                case 'R' -> this.rotateRight();
+                case 'M' -> this.moveInCurrentDirection(maxXCoordinate, maxYCoordinate);
+                default -> throw new IllegalArgumentException("There is an unknown command! Please use only 'L','R' or 'M' as commands.");
+            }
+        }
+    }
+
     public String getCurrentDirectedPositionAsString() {
         String position = "" + this.currentX + " " + this.currentY + " ";
         char direction = switch (this.currentDirection) {
