@@ -10,28 +10,28 @@ public class MarsRoverTests {
     @Test
     @DisplayName("Move rover in direction NORTH: the y-part of the position should be incremented")
     void moveNorth() {
-        testMovementIn(new MarsRover(3, 3, Direction.NORTH), "3 4 N");
+        testMovementInCurrentDirection(new MarsRover(3, 3, Direction.NORTH), "3 4 N");
     }
 
     @Test
     @DisplayName("Move rover in direction EAST: the x-part of the position should be incremented")
     void moveEast() {
-        testMovementIn(new MarsRover(3, 3, Direction.EAST), "4 3 E");
+        testMovementInCurrentDirection(new MarsRover(3, 3, Direction.EAST), "4 3 E");
     }
 
     @Test
     @DisplayName("Move rover in direction SOUTH: the y-part of the position should be decremented")
     void moveSouth() {
-        testMovementIn(new MarsRover(3, 3, Direction.SOUTH), "3 2 S");
+        testMovementInCurrentDirection(new MarsRover(3, 3, Direction.SOUTH), "3 2 S");
     }
 
     @Test
     @DisplayName("Move rover in direction WEST: the x-part of the position should be decremented")
     void moveWest() {
-        testMovementIn(new MarsRover(3, 3, Direction.WEST), "2 3 W");
+        testMovementInCurrentDirection(new MarsRover(3, 3, Direction.WEST), "2 3 W");
     }
 
-    private void testMovementIn(MarsRover rover, String expectedDirectedPosition) {
+    private void testMovementInCurrentDirection(MarsRover rover, String expectedDirectedPosition) {
         rover.moveInCurrentDirection();
         assertEquals(rover.getCurrentDirectedPositionAsString(), expectedDirectedPosition);
     }
