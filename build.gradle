@@ -26,4 +26,5 @@ jar {
 				'Main-Class': 'com.challenge.App'
 		)
 	}
+	baseName 'mars-rover'
 }
