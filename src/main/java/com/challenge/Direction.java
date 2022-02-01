@@ -20,4 +20,14 @@ public enum Direction {
     Direction(int directionIndex) {
         this.directionIndex = directionIndex;
     }
+
+    public static Direction directionFromString(String direction) {
+        return switch (direction) {
+            case "N" -> NORTH;
+            case "E" -> EAST;
+            case "S" -> SOUTH;
+            case "W" -> WEST;
+            default -> throw new IllegalArgumentException("No corresponding direction for String " + direction);
+        };
+    }
 }
